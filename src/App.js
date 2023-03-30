@@ -23,7 +23,7 @@ function App() {
     
       <div className={classes.App}>
         <Header/>
-        {/* <HomePage/> */}
+        <HomePage/>
         {/* <Routes>
         <Route path='/' component={HomePage} exact/>
         <Route path='/coins/:id' component={CoinPage}/>

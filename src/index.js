@@ -5,18 +5,19 @@ import App from './App';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import CoinPage from './Pages/CoinPage';
+import CryptoContext from './CryptoContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-  
+    <CryptoContext>
     <Routes>
       <Route path="/" element = {<App/>}/>
       <Route path='/homepage' element = {<HomePage/>}/>
       <Route path='/coins/:id' element = {<CoinPage/>}/>
     </Routes>
-    
+    </CryptoContext>
  
   </BrowserRouter>
 );
