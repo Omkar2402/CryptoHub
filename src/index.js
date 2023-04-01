@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import CoinPage from './Pages/CoinPage';
 import CryptoContext from './CryptoContext';
+import 'react-alice-carousel/lib/alice-carousel.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
