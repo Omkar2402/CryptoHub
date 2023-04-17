@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { CoinList } from '../config/api';
 import { CryptoState } from '../CryptoContext';
-import { Container, TextField, ThemeProvider, Typography, createTheme } from '@material-ui/core';
+import { Container, LinearProgress, Table, TableCell, TableContainer, TableHead, TableRow, TextField, ThemeProvider, Typography, createTheme } from '@material-ui/core';
 
 const CoinsTable = () => {
     const [coins, setCoins] = useState([]);
@@ -45,6 +45,35 @@ const CoinsTable = () => {
                 <TextField label="Search For a Crypto Currency...." variant="outlined" 
                 style={{marginBottom: 20, width: "100%"}}
                 onChange={(e) => setSearch(e.target.value)}/>
+
+                <TableContainer>
+                    {
+                        loading ? (
+                            <LinearProgress style={{backgroundColor: "gold"}}/>
+                        ) : (
+                            <Table>
+                                <TableHead style={{backgroundColor: "#EEBC1D"}}>
+                                    <TableRow>
+                                        {["Coin", "Price", "24h Change", "Market Cap"].map((index)=> (
+                                            <TableCell 
+                                            style={{
+                                                color: "black",
+                                                fontWeight: "700",
+                                                fontFamily: "Montserrat",
+                                            }}
+                                            key={index}
+                                            align={index === "Coin" ? "" : "right"}>
+                                                {index}
+
+                                            </TableCell>
+                                        ))}
+                                    </TableRow>
+
+                                </TableHead>
+                            </Table>
+                        )
+                    }
+                </TableContainer>
             </Container>
        </ThemeProvider>
     )
