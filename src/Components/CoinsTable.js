@@ -2,11 +2,12 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { CoinList } from '../config/api';
 import { CryptoState } from '../CryptoContext';
-import { Container, ThemeProvider, Typography, createTheme } from '@material-ui/core';
+import { Container, TextField, ThemeProvider, Typography, createTheme } from '@material-ui/core';
 
 const CoinsTable = () => {
     const [coins, setCoins] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [search, setSearch] = useState("");
 
     const { currency } = CryptoState();
 
@@ -40,6 +41,10 @@ const CoinsTable = () => {
                 style={{margin: 18, fontFamily: "Montserrat"}}>
                     Cryptocurrency Prices by Market Cap
                 </Typography>
+
+                <TextField label="Search For a Crypto Currency...." variant="outlined" 
+                style={{marginBottom: 20, width: "100%"}}
+                onChange={(e) => setSearch(e.target.value)}/>
             </Container>
        </ThemeProvider>
     )
