@@ -2,12 +2,15 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { CoinList } from '../config/api';
 import { CryptoState } from '../CryptoContext';
-import { Container, LinearProgress, Table, TableCell, TableContainer, TableHead, TableRow, TextField, ThemeProvider, Typography, createTheme } from '@material-ui/core';
+import { Container, LinearProgress, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, ThemeProvider, Typography, createTheme, makeStyles } from '@material-ui/core';
+import { useNavigate } from 'react-router-dom';
 
 const CoinsTable = () => {
     const [coins, setCoins] = useState([]);
     const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState("");
+
+    const navigate = useNavigate();
 
     const { currency } = CryptoState();
 
@@ -32,6 +35,19 @@ const CoinsTable = () => {
             type: "dark",
         }
     });
+
+    const handleSearch = () => {
+        return coins.filter((coin) => (
+            coin.name.toLowerCase().includes(search) || 
+            coin.symbol.toLowerCase().includes(search)
+        ))
+    }
+
+    const useStyles = makeStyles(() => ({
+
+    }))
+
+    const classes = useStyles();
 
     return (
        <ThemeProvider theme={darkTheme}>
@@ -70,6 +86,28 @@ const CoinsTable = () => {
                                     </TableRow>
 
                                 </TableHead>
+                                <TableBody>
+                                    {
+                                    handleSearch().map((row) => {
+                                        const profit = row.price_change_percentage_24h > 0;
+
+                                        return (
+                                            <TableRow onClick={() => navigate('/coins/${row.id}')}
+                                            className={classes.row}
+                                            key={row.name}>
+                                                <TableCell component="th" 
+                                                scope="row"
+                                                style={{
+                                                    display:"flex",
+                                                    gap:"15",
+                                                }}>
+
+                                                </TableCell>
+                                            </TableRow>
+                                        )
+                                    })
+                                    }
+                                </TableBody>
                             </Table>
                         )
                     }
