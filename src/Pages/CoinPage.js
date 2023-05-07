@@ -101,7 +101,6 @@ const CoinPage = () => {
       fontWeight: "bold",
       marginBottom: 20,
       fontFamily: "Montserrat",
-      color: "white"
     },
     description: {
       width: "100%",
@@ -110,7 +109,6 @@ const CoinPage = () => {
       paddingBottom: 15,
       paddingTop: 0,
       textAlign: "justify",
-      color: "white"
     },
     marketData: {
       alignSelf: "start",
@@ -119,9 +117,6 @@ const CoinPage = () => {
       width: "100%",
       [theme.breakpoints.down("md")]: {
         display: "flex",
-        justifyContent: "space-around",
-      },
-      [theme.breakpoints.down("sm")]: {
         flexDirection: "column",
         alignItems: "center",
       },
