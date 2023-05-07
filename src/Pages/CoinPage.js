@@ -101,6 +101,7 @@ const CoinPage = () => {
       fontWeight: "bold",
       marginBottom: 20,
       fontFamily: "Montserrat",
+      color: "white"
     },
     description: {
       width: "100%",
@@ -109,6 +110,7 @@ const CoinPage = () => {
       paddingBottom: 15,
       paddingTop: 0,
       textAlign: "justify",
+      color: "white"
     },
     marketData: {
       alignSelf: "start",
