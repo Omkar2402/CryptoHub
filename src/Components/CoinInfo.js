@@ -102,6 +102,7 @@ const CoinInfo = ({coin}) => {
             >
               {chartDays.map((day) => (
                 <Button
+                  style={{backgroundColor:"gold"}}
                   key={day.value}
                   onClick={() => {setDays(day.value);
                     
