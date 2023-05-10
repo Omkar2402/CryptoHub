@@ -5,6 +5,7 @@ import HomePage from './Pages/HomePage';
 import CoinPage from './Pages/CoinPage';
 import { makeStyles } from '@material-ui/core';
 import Alert from './Components/Alert';
+import CryptoNews from './Components/CryptoNews';
 
 function App() {
 
@@ -30,6 +31,10 @@ function App() {
         <Route path='/coins/:id' component={CoinPage}/>
         </Routes> */}
         <Alert/>
+        <br></br>
+        <hr></hr>
+        
+        <CryptoNews/>
       </div>
 
    
